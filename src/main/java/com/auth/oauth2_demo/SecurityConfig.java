@@ -8,6 +8,8 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 
+import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
+
 @EnableWebSecurity
 public class SecurityConfig {
 
@@ -19,10 +21,8 @@ public class SecurityConfig {
                         .requestMatchers("/").permitAll()
                         .anyRequest().authenticated()
                 )
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .oauth2Client(Customizer.withDefaults())
-//                .oauth2Login(Customizer.withDefaults())
-                .oauth2Login(AbstractHttpConfigurer::disable)
+                .sessionManagement(s -> s.sessionCreationPolicy(STATELESS))
+                .oauth2Login(Customizer.withDefaults())
                 .build();
     }
 }

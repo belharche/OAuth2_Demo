@@ -9,3 +9,7 @@ spring:
           github:
             client-id: Ov23liO3d0D4XLYM6g6c
             client-secret: e49002e62920c4322f0352e2484ca4747b60238l
+
+          google:
+            client-id: 88234425869-tdhu3rpu5j7c78b0mr963513jue1j5pg.apps.googleusercontent.com
+            client-secret: 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
